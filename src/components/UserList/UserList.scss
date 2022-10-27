@@ -15,7 +15,10 @@
   margin-top: 2vmin;
   flex: 0 1 auto;
 }
-
+.list-group-item.user{
+  display: flex;
+  justify-content: space-around;
+}
 .user:hover {
   background: #c7d0d7;
 }

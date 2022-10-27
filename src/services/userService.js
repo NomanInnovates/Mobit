@@ -2,7 +2,7 @@
 import axios from 'axios'
 
 const fetchUsers = () => {
-    return axios.get(process.env.REACT_APP_API_URL + '/users')
+    return axios.get(process.env.REACT_APP_API_URL + 'user/list')
         .then(res => {
             console.log(res.data)
             return res.data
@@ -10,7 +10,7 @@ const fetchUsers = () => {
 }
 
 const addUser = (newUser) => {
-    return axios.post(process.env.REACT_APP_API_URL + '/users', newUser).then(res => {
+    return axios.post(process.env.REACT_APP_API_URL + 'user/register', newUser).then(res => {
         console.log(res.data)
         return res.data
     })

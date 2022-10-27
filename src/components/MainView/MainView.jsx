@@ -7,10 +7,10 @@ import UserDetails from "../UserDetails/UserDetails";
 import userService from "../../services/userService";
 
 const NEW_USER = {
+    age: '',
     name: '',
+    phone: "",
     email: '',
-    password: '',
-    address: { street: '', zipCode: '', city: '', country: '' }
 }
 
 function MainView(props) {
@@ -19,7 +19,7 @@ function MainView(props) {
     const [isNewUser, setIsNewUser] = useState(true)
     const [filterPattern, setFilterPattern] = useState('')
     const [selectedUser, setSelectedUser] = useState(NEW_USER)
-
+console.log("selectedUser",selectedUser)
     const filteredUsers = () => {
         return fuzzy
             .filter(
@@ -49,7 +49,6 @@ function MainView(props) {
     const handleNewUserButtonClick = () => {
         setSelectedUser(NEW_USER)
         setIsNewUser(true)
-
     }
 
     const saveNewUser = (newUser) => {
@@ -86,7 +85,7 @@ function MainView(props) {
     const onFilterPatternChange = (pattern) => {
         setFilterPattern(pattern)
     }
-console.log("selectedUser",selectedUser)
+
     return (
         <div className="main-view-container container-fluid">
             {props.tab === 0 ?
@@ -94,7 +93,7 @@ console.log("selectedUser",selectedUser)
                     <div className="column-title">
                         User List
                     </div>
-                    <UserList users={filteredUsers()} onNewUser={handleNewUserButtonClick}
+                    <UserList users={filteredUsers()}
                         onUserSelect={selectUser} filterPattern={filterPattern}
                         onFilterPatternChange={onFilterPatternChange} />
                 </div> :
